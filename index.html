@@ -18,6 +18,17 @@
       font-family: "SFProRoundedBold", sans-serif;
     }
   </style>
+  <script>
+    window.appWebAssociate = {
+        loadCustomFont: function(fontData) {
+            window.webkit.messageHandlers.getFont.postMessage(fontData);
+        },
+        onCustomFontLoaded: function(fontName) {
+            // 在此處使用字型
+            document.body.style.fontFamily = fontName;
+        }
+    };
+</script>
 </head>
 <body>
   This is SF Pro Rounded Bold.
