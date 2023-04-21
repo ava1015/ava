@@ -18,13 +18,27 @@
       font-family: "SFProRoundedBold", sans-serif;
     }
   </style>
+  
   <script>
+    
+    window.webkit.messageHandlers.getFont.postMessage('');
+    
     window.appWebAssociate = {
-        loadCustomFont: function(fontData) {
-            window.webkit.messageHandlers.getFont.postMessage(fontData);
-        },
-        onCustomFontLoaded: function(fontName) {
-            // 在此處使用字型
+      loadCustomFont: function(fontBase64) {
+        var fontData = atob(fontBase64);
+        var fontArray = new Uint8Array(fontData.length);
+        for (var i = 0; i < fontData.length; i++) {
+          fontArray[i] = fontData.charCodeAt(i);
+        }
+        var fontBlob = new Blob([fontArray], {type: 'font/otf'});
+        var fontURL = URL.createObjectURL(fontBlob);
+        var fontFace = new FontFace('MyFont', 'url(' + fontURL + ')');
+        fontFace.load().then(function() {
+          document.fonts.add(fontFace);
+          window.appWebAssociate.onCustomFontLoaded('MyFont');
+        });
+      },
+      onCustomFontLoaded: function(fontName) {
             document.body.style.fontFamily = fontName;
         }
     };
