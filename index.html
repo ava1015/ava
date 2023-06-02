@@ -23,6 +23,11 @@
   
   <script>
     
+function close() {
+  alert("這是一個警告視窗！");
+  window.webkit.messageHandlers.CloseIndependentView.postMessage('');
+}
+    
     window.webkit.messageHandlers.getFont.postMessage('');
     
     window.appWebAssociate = {
@@ -63,10 +68,4 @@
   <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
   <p><input maxlength="100" type="text" /><button onclick="close()">送出</button></p>
 </body>
-<script>
-function close() {
-  alert("這是一個警告視窗！");
-  window.webkit.messageHandlers.CloseIndependentView.postMessage('');
-}
-</script>
 </html>
