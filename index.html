@@ -44,10 +44,6 @@
             document.body.style.fontFamily = fontName;
         }
     };
-    
-    function close() {
-      window.webkit.messageHandlers.CloseIndependentView.postMessage('');
-    }
 </script>
 </head>
 <body>
@@ -67,4 +63,9 @@
   <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
   <p><input maxlength="100" type="text" /><button onclick="close()">送出</button></p>
 </body>
+<script>
+function close() {
+      window.webkit.messageHandlers.CloseIndependentView.postMessage('');
+    }
+</script>
 </html>
