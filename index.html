@@ -65,7 +65,8 @@
 </body>
 <script>
 function close() {
-      window.webkit.messageHandlers.CloseIndependentView.postMessage('');
-    }
+  alert("這是一個警告視窗！");
+  window.webkit.messageHandlers.CloseIndependentView.postMessage('');
+}
 </script>
 </html>
