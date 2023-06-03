@@ -16,16 +16,23 @@
     
     body {
       font-family: "SFProRoundedBold", sans-serif;
-      /*
+      /**/
       background: transparent;
+    }
+      
+    .test {
+      width: 100%;
+      height: 240px;
+      overflow: auto;
+      background-color: white;
+      position: fixed;
+      bottom: 0;
     }
   </style>
   
   <script>
     
     function closeBrowser() {
-      console.log("Hello, world!");
-      alert("這是一個警告視窗！");
       window.webkit.messageHandlers.CloseIndependentView.postMessage('');
     }
     
@@ -53,20 +60,22 @@
 </script>
 </head>
 <body>
-  <p>現在看的畫面是 html 網頁</p>
-  This is SF Pro Rounded Bold.<br>
-  1 2 3 4 5 6 7 8 9 0<br>
-  02-25001234<br>
-  台北市中山區民生東路二段90號<br>
-  <p><a href="https://itunes.apple.com/tw/app/apple-store/id1616095362?mt=8&amp;action=write-review">打開評分(https)</a></p>
-  <p><a href="itms-apps://itunes.apple.com/tw/app/apple-store/id1616095362?mt=8&action=write-review">打開評分(itms-apps)</a></p>
-  <p><a href="https://itunes.apple.com/tw/app/apple-store/id1616095362?mt=8&amp;amp;action=write-review" target="_blank">另開視窗(https, blank)</a></p>
-  <p><a href="mood-staging-app://">打開 mood-staging-app</a></p>
-  <p><a href="mood-app://">打開 mood-app</a></p>
-  <p><a href="mailto:avahe@mood.day">avahe@mood.day</a></p>
-  <p><a href="https://tw.yahoo.com/">沒有 openExternalBrowser=1</a></p>
-  <p><a href="https://tw.yahoo.com/?openExternalBrowser=1">有 openExternalBrowser=1</a></p>
-  <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
-  <p><input maxlength="100" type="text" /><button onclick="closeBrowser()">送出</button></p>
+  <div class="test">
+    <p>現在看的畫面是 html 網頁</p>
+    This is SF Pro Rounded Bold.<br>
+    1 2 3 4 5 6 7 8 9 0<br>
+    02-25001234<br>
+    台北市中山區民生東路二段90號<br>
+    <p><a href="https://itunes.apple.com/tw/app/apple-store/id1616095362?mt=8&amp;action=write-review">打開評分(https)</a></p>
+    <p><a href="itms-apps://itunes.apple.com/tw/app/apple-store/id1616095362?mt=8&action=write-review">打開評分(itms-apps)</a></p>
+    <p><a href="https://itunes.apple.com/tw/app/apple-store/id1616095362?mt=8&amp;amp;action=write-review" target="_blank">另開視窗(https, blank)</a></p>
+    <p><a href="mood-staging-app://">打開 mood-staging-app</a></p>
+    <p><a href="mood-app://">打開 mood-app</a></p>
+    <p><a href="mailto:avahe@mood.day">avahe@mood.day</a></p>
+    <p><a href="https://tw.yahoo.com/">沒有 openExternalBrowser=1</a></p>
+    <p><a href="https://tw.yahoo.com/?openExternalBrowser=1">有 openExternalBrowser=1</a></p>
+    <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
+    <p><input maxlength="100" type="text" /><button onclick="closeBrowser()">送出</button></p>
+  </div>
 </body>
 </html>
