@@ -46,8 +46,8 @@
   <script>
     
     document.querySelector('input').addEventListener('focus', function() {
-      // 調整網頁位置
-      window.scrollTo(0, 0);
+      // 取消網頁的滾動行為
+      document.documentElement.style.overflow = 'hidden';
     });
     
     function closeBrowser() {
