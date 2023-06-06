@@ -20,6 +20,7 @@
     }
     
     body {
+      position: fixed;
       margin:0;
       padding:0;
       font-family: "SFProRoundedBold", sans-serif;
@@ -37,13 +38,6 @@
       bottom: 0;
       z-index: 9999;
     }
-    
-    .inputStyle {
-      position: fixed;
-      bottom: 0;
-    }
-    
-    
   </style>
   
   <script>
@@ -92,7 +86,7 @@
     <p><a href="https://tw.yahoo.com/">沒有 openExternalBrowser=1</a></p>
     <p><a href="https://tw.yahoo.com/?openExternalBrowser=1">有 openExternalBrowser=1</a></p>
     <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
-    <p><input maxlength="100" type="text" class="inputStyle" /><button onclick="closeBrowser()">關閉</button></p>
+    <p><input maxlength="100" type="text" /><button onclick="closeBrowser()">關閉</button></p>
   </div>
 </body>
 </html>
