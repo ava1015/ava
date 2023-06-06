@@ -37,6 +37,12 @@
       bottom: 0;
       z-index: 9999;
     }
+    
+    .inputStyle {
+      position: fixed;
+    }
+    
+    
   </style>
   
   <script>
@@ -69,6 +75,7 @@
 </script>
 </head>
 <body>
+  <div><b>測試用網頁</b></div>
   <div class="test">
     <p>現在看的畫面是 html 網頁</p>
     This is SF Pro Rounded Bold.<br>
@@ -84,7 +91,7 @@
     <p><a href="https://tw.yahoo.com/">沒有 openExternalBrowser=1</a></p>
     <p><a href="https://tw.yahoo.com/?openExternalBrowser=1">有 openExternalBrowser=1</a></p>
     <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
-    <p><input maxlength="100" type="text" /><button onclick="closeBrowser()">關閉</button></p>
+    <p><input maxlength="100" type="text" class="inputStyle" /><button onclick="closeBrowser()">關閉</button></p>
   </div>
 </body>
 </html>
