@@ -20,8 +20,10 @@
     }
     
     body {
+      /*
       position: fixed;
       top: 0;
+      */
       margin: 0;
       padding: 0;
       font-family: "SFProRoundedBold", sans-serif;
@@ -42,6 +44,11 @@
   </style>
   
   <script>
+    
+    document.querySelector('input').addEventListener('focus', function() {
+      // 調整網頁位置
+      window.scrollTo(0, 0);
+    });
     
     function closeBrowser() {
       window.webkit.messageHandlers.CloseIndependentView.postMessage('');
@@ -71,7 +78,7 @@
 </script>
 </head>
 <body>
-  <div><b>測試用網頁</b></div>
+  <div><b>測試用網頁2</b></div>
   <div class="test">
     <p>現在看的畫面是 html 網頁</p>
     This is SF Pro Rounded Bold.<br>
