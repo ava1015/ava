@@ -58,6 +58,15 @@
     function closeBrowser() {
       window.webkit.messageHandlers.CloseIndependentView.postMessage('');
     }
+
+    function share() {
+      const data = [
+        {"info": "文字範例之今天天氣晴", "type": "T", "ext": ""},
+        {"info": "https://pl.family.com.tw/PictureLibrary/00002/09/0540609_001.JPG", "type": "P", "ext": "jpg"},
+        {"info": "https://img3.momoshop.com.tw/goodsimg/0007/476/986/spec/7476986_01_009_R.jpg", "type": "P", "ext": "jpg"}
+    ];
+      window.webkit.messageHandlers.ShareWebInfo.postMessage(['1', data]);
+    }
     
     // window.webkit.messageHandlers.getFont.postMessage('');
     
@@ -115,6 +124,7 @@
     <p><a href="https://tw.yahoo.com/?openExternalBrowser=1">有 openExternalBrowser=1</a></p>
     <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
     <p><input maxlength="100" type="text" class="inputStyle" /><button onclick="closeBrowser()">關閉</button></p>
+    <p><button onclick="share()">分享</button></p>
   </div>
 </body>
 </html>
