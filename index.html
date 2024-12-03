@@ -78,7 +78,7 @@
       ];
       // 將 data 轉換為 JSON 字串
       const jsonData = JSON.stringify(data);
-      window.webkit.messageHandlers.DownloadImages.postMessage('');
+      window.webkit.messageHandlers.DownloadImages.postMessage(jsonData);
     }
     
     // window.webkit.messageHandlers.getFont.postMessage('');
