@@ -70,6 +70,17 @@
       window.webkit.messageHandlers.ShareWebInfo.postMessage(['1', jsonData]);
     }
 
+    function share_a() {
+      const data = [
+        {"info": "文字範例之今天天氣晴", "type": "T", "ext": ""},
+        {"info": "https://pl.family.com.tw/PictureLibrary/00002/09/0540609_001.JPG", "type": "P", "ext": "jpg"},
+        {"info": "https://img3.momoshop.com.tw/goodsimg/0007/476/986/spec/7476986_01_009_R.jpg", "type": "P", "ext": "jpg"}
+      ];
+      // 將 data 轉換為 JSON 字串
+      const jsonData = JSON.stringify(data);
+      window.android.ShareWebInfo(['1', jsonData]);
+    }
+
     function download() {
       const data = [
         "https://www.books.com.tw/img/001/100/67/0011006776.jpg",
@@ -87,6 +98,25 @@
       // 將 data 轉換為 JSON 字串
       const jsonData = JSON.stringify(data);
       window.webkit.messageHandlers.DownloadImages.postMessage(jsonData);
+    }
+
+    function download_a() {
+      const data = [
+        "https://www.books.com.tw/img/001/100/67/0011006776.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006777.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006778.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006779.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006780.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006781.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006782.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006783-.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006784.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006785.jpg",
+        "https://www.books.com.tw/img/001/100/67/0011006786.jpg",
+      ];
+      // 將 data 轉換為 JSON 字串
+      const jsonData = JSON.stringify(data);
+      window.android.DownloadImages(jsonData);
     }
     
     // window.webkit.messageHandlers.getFont.postMessage('');
@@ -147,8 +177,11 @@
     <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
     <p><input maxlength="100" type="text" class="inputStyle" /><button onclick="closeBrowser()">關閉</button></p>
     -->
-    <p><button onclick="share()">分享</button></p>
-    <p><button onclick="download()">下載</button></p>
+    <p><button onclick="share()">分享(iOS)</button></p>
+    <p><button onclick="download()">下載(iOS)</button></p>
+    <p/>
+    <p><button onclick="share_a()">分享(Android)</button></p>
+    <p><button onclick="download_a()">下載(Android)</button></p>
   </div>
 </body>
 </html>
