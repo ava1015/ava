@@ -26,7 +26,6 @@
             } else if (window.webkit) {
                 // call ios
                 window.webkit.messageHandlers.stdPhotoOn.postMessage(['Y', '5'])
-                alert("stdPhotoOn");
             }
         } catch (e) {
             alert("錯誤:" + e);
@@ -43,7 +42,6 @@
             } else if (window.webkit) {
                 // call ios
                 window.webkit.messageHandlers.stdPhotoOn.postMessage(['N', '5'])
-                alert("stdPhotoOn");
             }
         } catch (e) {
             alert("錯誤" + e);
@@ -65,8 +63,8 @@
                 window.android.stdPhotoOff();
             } else if (window.webkit) {
                 // call ios
-                window.webkit.messageHandlers.stdPhotoOff.postMessage('')
                 alert("stdPhotoOff");
+                window.webkit.messageHandlers.stdPhotoOff.postMessage('')
             }
         } catch (e) {
             alert("失敗:" + e);
