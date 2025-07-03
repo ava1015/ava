@@ -25,6 +25,7 @@
                 window.android.stdPhotoOn('Y', '5');
             } else if (window.webkit) {
                 // call ios
+                GetData.innerHTML += "<br>" + "<br>" + 'stdPhotoOn';
                 window.webkit.messageHandlers.stdPhotoOn.postMessage(['Y', '5'])
             }
         } catch (e) {
@@ -41,6 +42,7 @@
                 window.android.stdPhotoOn('N', '5');
             } else if (window.webkit) {
                 // call ios
+                GetData.innerHTML += "<br>" + "<br>" + 'stdPhotoOn';
                 window.webkit.messageHandlers.stdPhotoOn.postMessage(['N', '5'])
             }
         } catch (e) {
@@ -63,7 +65,7 @@
                 window.android.stdPhotoOff();
             } else if (window.webkit) {
                 // call ios
-                alert("stdPhotoOff");
+                GetData.innerHTML += "<br>" + "<br>" + 'stdPhotoOff';
                 window.webkit.messageHandlers.stdPhotoOff.postMessage('')
             }
         } catch (e) {
