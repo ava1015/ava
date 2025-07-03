@@ -1,6 +1,6 @@
 ﻿
 <!-- saved from url=(0419)https://storet.family.com.tw/FM_test_web/toolTest.html?ath=lL9Sz%2bWqfJSj6zActzrULmsJ0ZC8iKggAcEP2Wib6tKwAyX7QtX1RdHXI71M3oIuPbj%2f2NXwIrMc8w80mtZ7gk%2bWVou6kqDqLqLvMi7SzKFXW3yy8PD0iG52Ki1zkgldhUeALRhN9rGZmGLEDi0Y5GscXcUMTZqzm43pCG27LVQMnyJ16n4qxRVfzbJewK1a3UAvtHHjCKgvLuht0i6aB0PlII8b2VwRzVDQoSkSnxhJPedK6OMJDlNOtCmfCwbHk7JpFoMOkUB8IB%2f%2f5xoxkEne0Gk1pneHjEqA8LwO6xCeJUmmSHcSoogVKYGyxvdvq3LBAjDmuDl%2fkpGze1IrDw%3d%3d -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-16LE">
+<html><head>
     
 </head>
 <body>
@@ -22,14 +22,14 @@
 
         try {
             if (window.android && window.android.JsToJavaInterface) {
-                window.android.stdPhotoOn('Y', '5'); //©I¥sAPP´ú¸Õ
-                //alert("±½´y¾¹¼ÐÃD¤å¦r");
+                window.android.stdPhotoOn('Y', '5');
             } else if (window.webkit) {
                 // call ios
                 window.webkit.messageHandlers.stdPhotoOn.postMessage(['Y', '5'])
+                alert("stdPhotoOn");
             }
         } catch (e) {
-            alert("¥¢±Ñ:" + e);
+            alert("錯誤:" + e);
         }
 
     };
@@ -39,14 +39,14 @@
         alert("OpenSelect")
         try {
             if (window.android && window.android.JsToJavaInterface) {
-                window.android.stdPhotoOn('N', '5'); //©I¥sAPP´ú¸Õ
-                //alert("±½´y¾¹¼ÐÃD¤å¦r");
+                window.android.stdPhotoOn('N', '5');
             } else if (window.webkit) {
                 // call ios
                 window.webkit.messageHandlers.stdPhotoOn.postMessage(['N', '5'])
+                alert("stdPhotoOn");
             }
         } catch (e) {
-            alert("¥¢±Ñ:" + e);
+            alert("錯誤" + e);
         }
 
     };
@@ -66,6 +66,7 @@
             } else if (window.webkit) {
                 // call ios
                 window.webkit.messageHandlers.stdPhotoOff.postMessage('')
+                alert("stdPhotoOff");
             }
         } catch (e) {
             alert("失敗:" + e);
