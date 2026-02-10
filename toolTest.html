@@ -5,10 +5,13 @@
 </head>
 <body>
     UI<br><br><br>
+    <p>拍照或選取照片</p>
     <button id="OpenCamera" style="margin:10px;font-size:50px">打開相機</button><br>
     <button id="OpenSelect" style="margin:10px;font-size:50px">相片選擇</button><br>
     <button id="CloseCamera" style="margin:10px;font-size:50px">關閉相機</button><br><br>
-
+    <p>掃描器</p>
+    <button id="OpenScanner" style="margin:10px;font-size:50px">打開掃描器</button><br><br>
+    <button id="CloseScanner" style="margin:10px;font-size:50px">關閉掃描器</button><br><br>
     <div id="GetData"></div>
 
 <script>
@@ -16,6 +19,9 @@
     var OpenSelect = document.getElementById('OpenSelect');
     var CloseCamera = document.getElementById('CloseCamera');
     var GetData = document.getElementById('GetData');
+
+    var OpenScanner = document.getElementById('OpenScanner');
+    var CloseScanner = document.getElementById('CloseScanner');
 
     OpenCamera.onclick = function () {
         alert("OpenCamera")
@@ -33,7 +39,6 @@
         }
 
     };
-
 
     OpenSelect.onclick = function () {
         alert("OpenSelect")
@@ -56,6 +61,27 @@
         stdPhotoClosed(1)
     };
 
+    OpenScanner.onclick = function () {
+        alert("OpenScanner")
+        try {
+            if (window.android && window.android.JsToJavaInterface) {
+                window.android.stdScannerOn('掃描一維條碼', '');
+            } else if (window.webkit) {
+                // call ios
+                GetData.innerHTML += "<br>" + "<br>" + 'stdScannerOn';
+                window.webkit.messageHandlers.stdScannerOn.postMessage(['掃描一維條碼', ''])
+            }
+        } catch (e) {
+            alert("錯誤" + e);
+        }
+
+    };
+
+    CloseScanner.onclick = function () {
+        alert("CloseScanner")
+        stdScannerClosed(1)
+    };
+
     function stdPhotoUploaded(result) {
         alert("收到掃描結果:"+result);
         result = result.replace(/\\/g, "");
@@ -76,4 +102,25 @@
     function stdPhotoClosed(byUser) {
         GetData.innerHTML += "<br>" + "<br>" + '關閉結果:' + byUser;
     }
+
+    function stdScanned(result) {
+        alert("收到掃描結果:"+result);
+        try {
+            GetData.innerHTML = "<br>" + "<br>" + "掃描結果:" + result;
+            if (window.android && window.android.JsToJavaInterface) {
+                window.android.stdScannerOff();
+            } else if (window.webkit) {
+                // call ios
+                GetData.innerHTML += "<br>" + "<br>" + 'stdScannerOff';
+                window.webkit.messageHandlers.stdScannerOff.postMessage('')
+            }
+        } catch (e) {
+            alert("失敗:" + e);
+        }
+    }
+
+    function stdScannerClosed(byUser) {
+        GetData.innerHTML += "<br>" + "<br>" + '掃描器關閉結果:' + byUser;
+    }
+    
 </script></body></html>
