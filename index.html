@@ -103,6 +103,23 @@
           alert('網頁(Web)不支援此功能。')
       }
     }
+
+    function downloadMp4() {
+      const data = [
+        "https://www.pexels.com/zh-tw/download/video/4260500/",
+        "https://www.pexels.com/zh-tw/download/video/7092267/",
+      ];
+      // 將 data 轉換為 JSON 字串
+      const jsonData = JSON.stringify(data);
+      
+      if (window.android && window.android.JsToJavaInterface) {
+          window.android.DownloadMp4(jsonData);
+      } else if (window.webkit) {
+          window.webkit.messageHandlers.DownloadMp4.postMessage([jsonData])
+      } else {
+          alert('網頁(Web)不支援此功能。')
+      }
+    }
     
     // window.webkit.messageHandlers.getFont.postMessage('');
     
@@ -164,6 +181,7 @@
     -->
     <p><button onclick="share()">分享</button></p>
     <p><button onclick="download()">下載</button></p>
+    <p><button onclick="downloadMp4()">下載影片</button></p>
   </div>
 </body>
 </html>
