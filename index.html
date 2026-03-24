@@ -50,10 +50,13 @@
   
   <script>
     
-    document.querySelector('input').addEventListener('focus', function() {
-      // 取消網頁的滾動行為
-      document.documentElement.style.overflow = 'hidden';
-    });
+    const inputElement = document.querySelector('input');
+    if (inputElement) {
+      inputElement.addEventListener('focus', function() {
+        // 取消網頁的滾動行為
+        document.documentElement.style.overflow = 'hidden';
+      });
+    }
     
     function closeBrowser() {
       window.webkit.messageHandlers.CloseIndependentView.postMessage('');
@@ -120,6 +123,75 @@
           alert('網頁(Web)不支援此功能。')
       }
     }
+
+    
+
+    function storeData(type) {
+
+      var storeDataPayload = ['WEB.0.0', 'Input', '測試用網頁', '20261225'];
+      switch(type) {
+        case 1:
+          storeDataPayload = ['VISIBLE.1.1', 'pic', '{VisibleScreen}', '20260420'];
+          break;
+        case 2:
+          storeDataPayload = ['FULL.2.2', 'pic', '{FullScreen}', '20260510'];
+          break;
+        default:
+          break;
+      }
+
+      if (window.android && window.android.JsToJavaInterface) {
+          window.android.storeData(...storeDataPayload);
+      } else if (window.webkit) {
+          window.webkit.messageHandlers.storeData.postMessage(storeDataPayload)
+      } else {
+          alert('網頁(Web)不支援此功能。')
+      }
+    }
+
+    function requestData(type) {
+      var requestDataPayload = ['WEB.0.0', 'Input'];
+      switch(type) {
+        case 1:
+          requestDataPayload = ['VISIBLE.1.1', 'pic'];
+          break;
+        case 2:
+          requestDataPayload = ['FULL.2.2', 'pic'];
+          break;
+        default:
+          break;
+      }
+
+      if (window.android && window.android.JsToJavaInterface) {
+          window.android.requestData(...requestDataPayload);
+      } else if (window.webkit) {
+          window.webkit.messageHandlers.requestData.postMessage(requestDataPayload)
+      } else {
+          alert('網頁(Web)不支援此功能。')
+      }
+    }
+
+    function removeData(type) {
+      var removeDataPayload = ['WEB.0.0', 'Input'];
+      switch(type) {
+        case 1:
+          removeDataPayload = ['VISIBLE.1.1', 'pic'];
+          break;
+        case 2:
+          removeDataPayload = ['FULL.2.2', 'pic'];
+          break;
+        default:
+          break;
+      }
+
+      if (window.android && window.android.JsToJavaInterface) {
+          window.android.removeData(...removeDataPayload);
+      } else if (window.webkit) {
+          window.webkit.messageHandlers.removeData.postMessage(removeDataPayload)
+      } else {
+          alert('網頁(Web)不支援此功能。')
+      }
+    }
     
     // window.webkit.messageHandlers.getFont.postMessage('');
     
@@ -182,6 +254,16 @@
     <p><button onclick="share()">分享</button></p>
     <p><button onclick="download()">下載</button></p>
     <p><button onclick="downloadMp4()">下載影片</button></p>
+    <p> </p>
+    <p><button onclick="storeData(0)">儲存資料_純文字</button></p>
+    <p><button onclick="storeData(1)">儲存資料_局部截圖</button></p>
+    <p><button onclick="storeData(2)">儲存資料_全部截圖</button></p>
+    <p><button onclick="requestData(0)">請求資料_純文字</button></p>
+    <p><button onclick="requestData(1)">請求資料_局部截圖</button></p>
+    <p><button onclick="requestData(2)">請求資料_全部截圖</button></p>
+    <p><button onclick="removeData(0)">移除資料_純文字</button></p>
+    <p><button onclick="removeData(1)">移除資料_局部截圖</button></p>
+    <p><button onclick="removeData(2)">移除資料_全部截圖</button></p>
   </div>
 </body>
 </html>
