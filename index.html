@@ -49,6 +49,7 @@
   </style>
   
   <script>
+    var GetData = document.getElementById('GetData');
     
     const inputElement = document.querySelector('input');
     if (inputElement) {
@@ -123,8 +124,6 @@
           alert('網頁(Web)不支援此功能。')
       }
     }
-
-    
 
     function storeData(type) {
 
@@ -204,6 +203,20 @@
           alert('網頁(Web)不支援此功能。')
       }
     }
+
+    // App 呼叫 JavaScript 的函式 Start
+
+    function responseData(result) {
+        alert("收到結果:"+result);
+        result = result.replace(/\\/g, "");
+        try {
+            GetData.innerHTML = "<br>" + "<br>" + "檔案上傳完成結果:" + result;
+        } catch (e) {
+            alert("失敗:" + e);
+        }
+    }
+
+    // App 呼叫 JavaScript 的函式 End
     
     // window.webkit.messageHandlers.getFont.postMessage('');
     
@@ -277,5 +290,6 @@
     <p><button onclick="removeData(1)">移除資料_局部截圖</button></p>
     <p><button onclick="removeData(2)">移除資料_全部截圖</button></p>
   </div>
+  <div id="GetData"></div>
 </body>
 </html>
