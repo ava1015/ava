@@ -150,13 +150,19 @@
     }
 
     function requestData(type) {
-      var requestDataPayload = ['WEB.0.0', 'Input'];
+      var requestDataPayload = [
+        {"funcCode": "WEB.0.0", "key": "Input"}
+      ];
       switch(type) {
         case 1:
-          requestDataPayload = ['VISIBLE.1.1', 'pic'];
+          requestDataPayload = [
+            {"funcCode": "VISIBLE.1.1", "key": "pic"}
+          ];
           break;
         case 2:
-          requestDataPayload = ['FULL.2.2', 'pic'];
+          requestDataPayload = [
+            {"funcCode": "FULL.2.2", "key": "pic"}
+          ];
           break;
         default:
           break;
@@ -175,13 +181,13 @@
     }
 
     function removeData(type) {
-      var removeDataPayload = ['WEB.0.0', 'Input'];
+      var removeDataPayload = [{"funcCode": "WEB.0.0", "key": "Input"}];
       switch(type) {
         case 1:
-          removeDataPayload = ['VISIBLE.1.1', 'pic'];
+          removeDataPayload = [{"funcCode": "VISIBLE.1.1", "key": "pic"}];
           break;
         case 2:
-          removeDataPayload = ['FULL.2.2', 'pic'];
+          removeDataPayload = [{"funcCode": "FULL.2.2", "key": "pic"}];
           break;
         default:
           break;
