@@ -162,10 +162,13 @@
           break;
       }
 
+      // 將 data 轉換為 JSON 字串
+      const jsonData = JSON.stringify(requestDataPayload);
+
       if (window.android && window.android.JsToJavaInterface) {
-          window.android.requestData(...requestDataPayload);
+          window.android.requestData(jsonData);
       } else if (window.webkit) {
-          window.webkit.messageHandlers.requestData.postMessage(requestDataPayload)
+          window.webkit.messageHandlers.requestData.postMessage([jsonData])
       } else {
           alert('網頁(Web)不支援此功能。')
       }
@@ -184,10 +187,13 @@
           break;
       }
 
+      // 將 data 轉換為 JSON 字串
+      const jsonData = JSON.stringify(removeDataPayload);
+
       if (window.android && window.android.JsToJavaInterface) {
-          window.android.RemoveData(...removeDataPayload);
+          window.android.removeData(jsonData);
       } else if (window.webkit) {
-          window.webkit.messageHandlers.RemoveData.postMessage(removeDataPayload)
+          window.webkit.messageHandlers.removeData.postMessage([jsonData])
       } else {
           alert('網頁(Web)不支援此功能。')
       }
