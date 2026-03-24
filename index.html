@@ -185,9 +185,9 @@
       }
 
       if (window.android && window.android.JsToJavaInterface) {
-          window.android.removeData(...removeDataPayload);
+          window.android.RemoveData(...removeDataPayload);
       } else if (window.webkit) {
-          window.webkit.messageHandlers.removeData.postMessage(removeDataPayload)
+          window.webkit.messageHandlers.RemoveData.postMessage(removeDataPayload)
       } else {
           alert('網頁(Web)不支援此功能。')
       }
