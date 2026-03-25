@@ -64,6 +64,21 @@
   </script>
 </div>
   <div><b>測試用網頁1</b></div>
+  <div>
+    <p><button onclick="share()">分享</button></p>
+    <p><button onclick="download()">下載</button></p>
+    <p><button onclick="downloadMp4()">下載影片</button></p>
+    <p> </p>
+    <p><button onclick="storeData(0)">儲存資料_純文字</button></p>
+    <p><button onclick="storeData(1)">儲存資料_局部截圖</button></p>
+    <p><button onclick="storeData(2)">儲存資料_全部截圖</button></p>
+    <p><button onclick="requestData(0)">請求資料_純文字</button></p>
+    <p><button onclick="requestData(1)">請求資料_局部截圖</button></p>
+    <p><button onclick="requestData(2)">請求資料_全部截圖</button></p>
+    <p><button onclick="removeData(0)">移除資料_純文字</button></p>
+    <p><button onclick="removeData(1)">移除資料_局部截圖</button></p>
+    <p><button onclick="removeData(2)">移除資料_全部截圖</button></p>
+  </div>
   <div class="test">
     <!--
     <p>現在看的畫面是 html 網頁</p>
@@ -82,19 +97,6 @@
     <p><a href="mood-app://app.mooder.work/link/posts/8747">posts 8747</a></p>
     <p><input maxlength="100" type="text" class="inputStyle" /><button onclick="closeBrowser()">關閉</button></p>
     -->
-    <p><button onclick="share()">分享</button></p>
-    <p><button onclick="download()">下載</button></p>
-    <p><button onclick="downloadMp4()">下載影片</button></p>
-    <p> </p>
-    <p><button onclick="storeData(0)">儲存資料_純文字</button></p>
-    <p><button onclick="storeData(1)">儲存資料_局部截圖</button></p>
-    <p><button onclick="storeData(2)">儲存資料_全部截圖</button></p>
-    <p><button onclick="requestData(0)">請求資料_純文字</button></p>
-    <p><button onclick="requestData(1)">請求資料_局部截圖</button></p>
-    <p><button onclick="requestData(2)">請求資料_全部截圖</button></p>
-    <p><button onclick="removeData(0)">移除資料_純文字</button></p>
-    <p><button onclick="removeData(1)">移除資料_局部截圖</button></p>
-    <p><button onclick="removeData(2)">移除資料_全部截圖</button></p>
   </div>
   <div id="GetData"></div>
   <script>
