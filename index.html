@@ -98,6 +98,7 @@
     <p><input maxlength="100" type="text" class="inputStyle" /><button onclick="closeBrowser()">關閉</button></p>
     -->
   </div>
+  <div id="GetData"></div>
   <div>
     <ul>
       <li>選項1</li>
@@ -150,7 +151,6 @@
       <li>選項6</li>
     </ul>
   </div>
-  <div id="GetData"></div>
   <script>
     var GetData = document.getElementById('GetData');
     
@@ -310,7 +310,7 @@
     // App 呼叫 JavaScript 的函式 Start
 
     function responseData(result) {
-        alert("收到結果:"+result);
+        // alert("收到結果:"+result);
         result = result.replace(/\\/g, "");
         try {
             GetData.innerHTML = "<br>" + "<br>" + "檔案上傳完成結果:" + result;
