@@ -313,7 +313,7 @@
         // alert("收到結果:"+result);
         result = result.replace(/\\/g, "");
         try {
-            GetData.innerHTML = "<br>" + "<br>" + "檔案上傳完成結果:" + result;
+            GetData.innerHTML += "<br>" + "<br>" + "檔案上傳完成結果:" + result;
         } catch (e) {
             alert("失敗:" + e);
         }
