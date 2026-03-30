@@ -65,6 +65,7 @@
 </div>
   <div><b>測試用網頁1</b></div>
   <div>
+    <p><button onclick="requestUnreadMessageCount()">requestUnreadMessageCount</button></p>
     <p><button onclick="share()">分享</button></p>
     <p><button onclick="download()">下載</button></p>
     <p><button onclick="downloadMp4()">下載影片</button></p>
@@ -302,6 +303,16 @@
           window.android.removeData(jsonData);
       } else if (window.webkit) {
           window.webkit.messageHandlers.removeData.postMessage([jsonData])
+      } else {
+          alert('網頁(Web)不支援此功能。')
+      }
+    }
+
+    function requestUnreadMessageCount() {
+      if (window.android && window.android.JsToJavaInterface) {
+          window.android.requestUnreadMessageCount();
+      } else if (window.webkit) {
+          window.webkit.messageHandlers.requestUnreadMessageCount.postMessage()
       } else {
           alert('網頁(Web)不支援此功能。')
       }
