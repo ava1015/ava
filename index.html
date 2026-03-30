@@ -312,7 +312,7 @@
       if (window.android && window.android.JsToJavaInterface) {
           window.android.requestUnreadMessageCount();
       } else if (window.webkit) {
-          window.webkit.messageHandlers.requestUnreadMessageCount.postMessage()
+          window.webkit.messageHandlers.requestUnreadMessageCount.postMessage('')
       } else {
           alert('網頁(Web)不支援此功能。')
       }
