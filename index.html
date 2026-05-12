@@ -320,11 +320,34 @@
 
     // App 呼叫 JavaScript 的函式 Start
 
-    function responseData(result) {
+    function storeDataResult(funcCode, key, retDesc) {
+        // alert("收到結果:"+funcCode+","+key+","+retDesc);
+        funcCode = funcCode.replace(/\\/g, "");
+        key = key.replace(/\\/g, "");
+        retDesc = retDesc.replace(/\\/g, "");
+        try {
+            GetData.innerHTML += "<br>" + "<br>" + "儲存結果:" + funcCode + "," + key + "," + retDesc;
+        } catch (e) {
+            alert("失敗:" + e);
+        }
+    }
+
+    function responseData(result, errDesc) {
         // alert("收到結果:"+result);
         result = result.replace(/\\/g, "");
+        errDesc = errDesc.replace(/\\/g, "");
         try {
-            GetData.innerHTML += "<br>" + "<br>" + "檔案上傳完成結果:" + result;
+            GetData.innerHTML += "<br>" + "<br>" + "檔案上傳完成結果:" + result + "," + errDesc;
+        } catch (e) {
+            alert("失敗:" + e);
+        }
+    }
+
+    function removeDataResult(jsonInfo) {
+        // alert("收到結果:"+jsonInfo);
+        jsonInfo = jsonInfo.replace(/\\/g, "");
+        try {
+            GetData.innerHTML += "<br>" + "<br>" + "移除結果:" + jsonInfo;
         } catch (e) {
             alert("失敗:" + e);
         }
