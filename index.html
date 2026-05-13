@@ -333,7 +333,7 @@
     }
 
     function responseData(result, errDesc) {
-        // alert("收到結果:"+result);
+        alert("收到結果:"+result);
         result = result.replace(/\\/g, "");
         errDesc = errDesc.replace(/\\/g, "");
         try {
@@ -344,7 +344,7 @@
     }
 
     function removeDataResult(jsonInfo) {
-        // alert("收到結果:"+jsonInfo);
+        alert("收到結果:"+jsonInfo);
         jsonInfo = jsonInfo.replace(/\\/g, "");
         try {
             GetData.innerHTML += "<br>" + "<br>" + "移除結果:" + jsonInfo;
