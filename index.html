@@ -357,8 +357,10 @@
 
       console.log('removeDataResult', `jsonInfo:${jsonInfo}`)
 
+      let rtnJson = null
+
       try {
-        const rtnJson = JSON.parse(jsonInfo)
+        rtnJson = JSON.parse(jsonInfo)
       } catch (e) {
         alert("解析回傳結果失敗")
         return
