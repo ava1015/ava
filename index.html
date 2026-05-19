@@ -344,13 +344,39 @@
     }
 
     function removeDataResult(jsonInfo) {
-        alert("收到結果:"+jsonInfo);
+      alert("收到結果:"+jsonInfo);
+
+       /*
         jsonInfo = jsonInfo.replace(/\\/g, "");
         try {
             GetData.innerHTML += "<br>" + "<br>" + "移除結果:" + jsonInfo;
         } catch (e) {
             alert("失敗:" + e);
         }
+      */
+
+      console.log('removeDataResult', `jsonInfo:${jsonInfo}`)
+
+      try {
+        const rtnJson = JSON.parse(jsonInfo)
+      } catch (e) {
+        alert("解析回傳結果失敗")
+        return
+      }
+      
+      try {
+        console.log('rtnJson', rtnJson)
+        console.log(rtnJson[0].retDesc)
+        
+        if (rtnJson[0].retDesc == '0') {
+          alert("踩點完成，上傳成功")
+        }
+        else {
+          alert("RemoveData Function執行失敗")
+        }
+      } catch (e) {
+        alert("移除APP內儲空間的資料失敗")
+      }
     }
 
     // App 呼叫 JavaScript 的函式 End
