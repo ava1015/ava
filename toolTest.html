@@ -5,6 +5,9 @@
 </head>
 <body>
     UI<br><br><br>
+    <p>語音辨識</p>
+    <button id="OpenStt" style="margin:10px;font-size:50px">打開語音辨識</button><br>
+    <button id="CloseStt" style="margin:10px;font-size:50px">關閉語音辨識</button><br><br>
     <p>拍照或選取照片</p>
     <button id="OpenCamera" style="margin:10px;font-size:50px">打開相機</button><br>
     <button id="OpenSelect" style="margin:10px;font-size:50px">相片選擇</button><br>
@@ -22,6 +25,9 @@
 
     var OpenScanner = document.getElementById('OpenScanner');
     var CloseScanner = document.getElementById('CloseScanner');
+
+    var OpenStt = document.getElementById('OpenStt');
+    var CloseStt = document.getElementById('CloseStt');
 
     OpenCamera.onclick = function () {
         alert("OpenCamera")
@@ -82,6 +88,29 @@
         stdScannerClosed(1)
     };
 
+    OpenStt.onclick = function () {
+        alert("OpenStt")
+        try {
+            if (window.android && window.android.JsToJavaInterface) {
+                window.android.stdSttOn();
+            } else if (window.webkit) {
+                // call ios
+                GetData.innerHTML += "<br>" + "<br>" + 'stdSttOn';
+                window.webkit.messageHandlers.stdSttOn.postMessage()
+            }
+        } catch (e) {
+            alert("錯誤" + e);
+        }
+
+    };
+
+    CloseStt.onclick = function () {
+        alert("CloseStt")
+        stdSttClosed(1)
+    };
+
+    //////////////////////////////////////////////
+
     function stdPhotoUploaded(result) {
         alert("收到掃描結果:"+result);
         result = result.replace(/\\/g, "");
@@ -121,6 +150,26 @@
 
     function stdScannerClosed(byUser) {
         GetData.innerHTML += "<br>" + "<br>" + '掃描器關閉結果:' + byUser;
+    }
+
+    function stdSttResult(result) {
+        alert("收到掃描結果:"+result);
+        try {
+            GetData.innerHTML = "<br>" + "<br>" + "掃描結果:" + result;
+            if (window.android && window.android.JsToJavaInterface) {
+                window.android.stdSttOff();
+            } else if (window.webkit) {
+                // call ios
+                GetData.innerHTML += "<br>" + "<br>" + 'stdScannerOff';
+                window.webkit.messageHandlers.stdSttOff.postMessage('')
+            }
+        } catch (e) {
+            alert("失敗:" + e);
+        }
+    }
+
+    function stdSttClosed(byUser) {
+        GetData.innerHTML += "<br>" + "<br>" + '語音辨識關閉結果:' + byUser;
     }
     
 </script></body></html>
