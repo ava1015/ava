@@ -96,7 +96,7 @@
             } else if (window.webkit) {
                 // call ios
                 GetData.innerHTML += "<br>" + "<br>" + 'stdSttOn';
-                window.webkit.messageHandlers.stdSttOn.postMessage()
+                window.webkit.messageHandlers.stdSttOn.postMessage(null)
             }
         } catch (e) {
             alert("錯誤" + e);
